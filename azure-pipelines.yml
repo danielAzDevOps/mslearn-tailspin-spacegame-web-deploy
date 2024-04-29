@@ -1,11 +1,11 @@
 trigger:
   - '*'
   
-  variables:
+variables:
     buildConfiguration: 'Release'
     releaseBranchName: 'release'
   
-  schedules:
+schedules:
   - cron: '0 3 * * *'
     displayName: 'Deploy every day at 3 A.M.'
     branches:
@@ -13,7 +13,7 @@ trigger:
       - release
     always: false 
   
-  stages:
+stages:
   - stage: 'Build'
     displayName: 'Build the web application'
     jobs: 
@@ -125,4 +125,4 @@ trigger:
               inputs:
                 azureSubscription: 'Resource Manager - Tailspin - Space Game'
                 appName: '$(WebAppNameTest)'
-                package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+                package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'git
