@@ -20,9 +20,8 @@ stages:
     - job: 'Build'
       displayName: 'Build job'
       pool:
-        vmImage: 'ubuntu-20.04'
-        demands:
-        - npm
+        name: 'MyAgentPool'
+        
   
       variables:
         wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
@@ -86,7 +85,7 @@ stages:
     jobs:
     - deployment: Deploy
       pool:
-        vmImage: 'ubuntu-20.04'
+        name: 'MyAgentPool'
       environment: dev
       variables:
       - group: Release
@@ -110,7 +109,7 @@ stages:
     jobs:
     - deployment: Deploy
       pool:
-        vmImage: 'ubuntu-20.04'
+        name: 'MyAgentPool'
       environment: test
       variables:
       - group: 'Release'
@@ -133,7 +132,7 @@ stages:
     jobs:
     - deployment: Deploy
       pool:
-        vmImage: 'ubuntu-20.04'
+        name: 'MyAgentPool'
       environment: preprod
       variables:
       - group: 'Release'
