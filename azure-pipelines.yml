@@ -20,7 +20,7 @@ stages:
     - job: 'Build'
       displayName: 'Build job'
       pool:
-        name: 'MyAgentPool'
+        name: 'LinuxPool1'
         
   
       variables:
@@ -85,7 +85,7 @@ stages:
     jobs:
     - deployment: Deploy
       pool:
-        name: 'MyAgentPool'
+        name: 'LinuxPool1'
       environment: dev
       variables:
       - group: Release
@@ -109,7 +109,7 @@ stages:
     jobs:
     - deployment: Deploy
       pool:
-        name: 'MyAgentPool'
+        name: 'LinuxPool1'
       environment: test
       variables:
       - group: 'Release'
@@ -132,7 +132,7 @@ stages:
     jobs:
     - deployment: Deploy
       pool:
-        name: 'MyAgentPool'
+        name: 'LinuxPool1'
       environment: preprod
       variables:
       - group: 'Release'
